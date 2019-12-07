@@ -1,0 +1,320 @@
+<ion-app></ion-app>
+<!DOCTYPE html>
+<html><head>
+<style type="text/css">
+#chessboard, .black_square, .white_square {
+	display:block;
+	padding:0px;
+	margin:0px;
+}
+
+#chessboard {
+	width:544px;
+	height:544px;
+	background: transparent;
+	border-radius: 260px 260px 190px 260px;
+	border:6px solid #90F0F0;
+}
+
+.black_square, .white_square {
+	border-top:16px solid lightgreen;
+	border-right:16px solid cyan;
+	border-bottom:0px;
+	border-left:0px;
+	border-radius: 17px;
+	float:right;
+	margin:7px;
+}
+
+.black_square {
+	background-color:#0959ed;
+}
+
+.white_square {
+	background-color:#ed7409;
+}
+
+@keyframes spin {
+	0%{
+	position:absolute;
+	left:100px;
+	top:90px;
+	transform:rotate(0deg); }
+	24%{
+	position:absolute;
+	left:1080px;
+	top:400px;
+	transform:rotate(720deg);
+	}
+	49%{
+	position:absolute;
+	left:900px;
+	top:90px;
+	transform:rotate(-180deg);
+	}
+	100%{
+	position:absolute;
+	left:100px;
+	top:90px;
+	transform:rotate(900deg);
+	}
+}
+
+.newtons { animation: spin 7s infinite alternate; }
+
+@keyframes insiders {
+
+	from { transform:rotate(0deg);
+	background-color:#dceb0e;
+	transition-property: background-color font-size transform color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+	}
+	to { transform:rotate(1800deg);
+	transition-property: width height background-color font-size transform color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+	}
+}
+
+@keyframes potion {
+	 from {
+	 transition-property: width height left top transform color;
+	 transition-duration: 0.5s;
+	 transition-timing-function: ease-in-out;
+	 }
+	 to {
+	 background-color: #b09f20;
+	 left:343px;
+	 top:343px;
+	 transition-property: width height left top transform color;
+	 transition-duration: 0.5s;
+	 transition-timing-function: ease-in-out;
+	 position: absolute;
+	 width: 15px;
+	 height: 15px;
+	 }
+}
+
+@keyframes anima {
+from {
+	width: 90px;
+    height: 90px;
+	color:yellow;
+	top:0px;
+	left:0px;
+    background-color: #f08c35;
+    font-size: 18px;
+	position:absolute;
+    transition-property: width height background-color font-size transform color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+to {
+    transform: rotate(270deg);
+    width: 50px;
+    height: 50px;
+	top:449px;
+	left:395px;
+    background-color: #fff1f1;
+    color: yellow;
+    font-size: 18px;
+	position:absolute;
+    transition-property: width height background-color font-size left top transform color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}}
+
+@keyframes anima_mundi {
+from {
+	width: 90px;
+    height: 90px;
+	color:yellow;
+	top:449px;
+	left:0px;
+    background-color: #f59611;
+    font-size: 18px;
+	position:absolute;
+    transition-property: width height background-color font-size transform color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+to {
+    transform: rotate(270deg);
+    width: 50px;
+    height: 50px;
+	top:0px;
+	left:449px;
+    background-color: #e0771b;
+    color: yellow;
+    font-size: 18px;
+	position:absolute;
+    transition-property: width height background-color font-size left top transform color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}}
+
+#KR8 { position:absolute; left:14px; top:-14px; animation: potion 1s infinite alternate; }
+#KN8 { position:absolute; left:64px; top:-14px; animation: potion 7s infinite alternate; }
+#KB8 { position:absolute; left:114px; top:-14px; animation: potion 3s infinite alternate; }
+#Q8 { position:absolute; left:164px; top:-14px; animation: potion 5s infinite alternate; }
+#QB8 { position:absolute; left:214px; top:-14px; animation: potion 7s infinite alternate; }
+#QN8 { position:absolute; left:264px; top:-14px; animation: potion 3s infinite alternate; }
+#QR8 { position:absolute; left:314px; top:-14px; animation: potion 1s infinite alternate; }
+#KR7 { position:absolute; left:14px; top:-64px; animation: potion 1s infinite alternate; }
+#KN7 { position:absolute; left:64px; top:-64px; animation: potion 1s infinite alternate; }
+#KB7 { position:absolute; left:114px; top:-64px; animation: potion 3s infinite alternate; }
+#Q7 { position:absolute; left:164px; top:-64px; animation: potion 5s infinite alternate; }
+#QB7 { position:absolute; left:214px; top:-64px; animation: potion 9s infinite alternate; }
+#QN7 { position:absolute; left:264px; top:-64px; animation: potion 1s infinite alternate; }
+#QR7 { position:absolute; left:314px; top:-64px; animation: potion 6s infinite alternate; }
+#KR6 { position:absolute; left:14px; top:-164px; animation: potion 3s infinite alternate; }
+#KN6 { position:absolute; left:64px; top:-164px; animation: potion 1s infinite alternate; }
+#KB6 { position:absolute; left:114px; top:-164px; animation: potion 8s infinite alternate; }
+#Q6 { position:absolute; left:164px; top:-164px; animation: potion 3s infinite alternate; }
+#QB6 { position:absolute; left:214px; top:-164px; animation: potion 6s infinite alternate; }
+#QN6 { position:absolute; left:264px; top:-164px; animation: potion 1s infinite alternate; }
+#QR6 { position:absolute; left:314px; top:-164px; animation: potion 4s infinite alternate; }
+#KR5 { position:absolute; left:14px; top:-214px; animation: potion 7s infinite alternate; }
+#KN5 { position:absolute; left:64px; top:-214px; animation: potion 4s infinite alternate; }
+#KB5 { position:absolute; left:114px; top:-214px; animation: potion 1s infinite alternate; }
+#Q5 { position:absolute; left:164px; top:-214px; animation: potion 9s infinite alternate; }
+#QB5 { position:absolute; left:214px; top:-214px; animation: potion 3s infinite alternate; }
+#QN5 { position:absolute; left:264px; top:-214px; animation: potion 1s infinite alternate; }
+#QR5 { position:absolute; left:314px; top:-214px; animation: potion 3s infinite alternate; }
+#KR4 { position:absolute; left:14px; top:-264px; animation: potion 1s infinite alternate; }
+#KN4 { position:absolute; left:64px; top:-264px; animation: potion 3s infinite alternate; }
+#KB4 { position:absolute; left:114px; top:-264px; animation: potion 1s infinite alternate; }
+#Q4 { position:absolute; left:164px; top:-264px; animation: potion 2s infinite alternate; }
+#QB4 { position:absolute; left:214px; top:-264px; animation: potion 1s infinite alternate; }
+#QN4 { position:absolute; left:264px; top:-264px; animation: potion 3s infinite alternate; }
+#QR4 { position:absolute; left:314px; top:-264px; animation: potion 1s infinite alternate; }
+#KR3 { position:absolute; left:14px; top:-314px; animation: potion 3s infinite alternate; }
+#KN3 { position:absolute; left:64px; top:-314px; animation: potion 1s infinite alternate; }
+#KB3 { position:absolute; left:114px; top:-314px; animation: potion 4s infinite alternate; }
+#Q3 { position:absolute; left:164px; top:-314px; animation: potion 1s infinite alternate; }
+#QB3 { position:absolute; left:214px; top:-314px; animation: potion 3s infinite alternate; }
+#QN3 { position:absolute; left:2644px; top:-314px; animation: potion 1s infinite alternate; }
+#QR3 { position:absolute; left:314px; top:-314px; animation: potion 3s infinite alternate; }
+#KR2 { animation: insiders 1s infinite alternate; }
+#KN2 { animation: insiders 3s infinite alternate; }
+#KB2 { animation: insiders 1s infinite alternate; }
+#Q2 { animation: insiders 3s infinite alternate; }
+#QB2 { animation: insiders 1s infinite alternate; }
+#QN2 { animation: insiders 3s infinite alternate; }
+#QR2 { animation: insiders 1s infinite alternate; }
+#KR1 { animation: insiders 3s infinite alternate; }
+#KN1 { animation: insiders 1s infinite alternate; }
+#KB1 { animation: insiders 3s infinite alternate; }
+#Q1 { animation: insiders 1s infinite alternate; }
+#KR0 { animation: insiders 1s infinite alternate; }
+#KN0 { animation: insiders 1s infinite alternate; }
+#KB0 { animation: insiders 1s infinite alternate; }
+#Q0 { animation: insiders 1s infinite alternate; }
+#QB0 { animation: insiders 1s infinite alternate; }
+#QN0 { animation: insiders 1s infinite alternate; }
+#QR0 { animation: insiders 1s infinite alternate; }
+
+#QB1 { animation: anima_mundi 1s infinite alternate; }
+
+#QN1 { animation: anima 1.036s infinite alternate; }
+#QR1 { animation: anima_mundi 2.036s infinite alternate; }
+
+</style>
+</head>
+<body style="background:#F1F1F1;">
+<div id="chessboard" class="newtons"><img src="squ_jit_rd01.gif" style="border-radius: 245px 245px 245px 245px;" />
+	<div>
+		<div class="white_square" id="KR8" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="KN8" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="KB8" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="K8" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="Q8" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QB8" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QN8" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QR8" style="width:20px; height:20px;"></div>
+	</div>
+	<div>
+		<div class="black_square" id="KR7" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="KN7" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="K7" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="Q7" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QB7" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QN7" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QR7" style="width:20px; height:20px;"></div>
+	</div>
+	<div>
+		<div class="black_square" id="KN6" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="KB6" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="K6" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="Q6" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QB6" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QN6" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QR6" style="width:20px; height:20px;"></div>
+	</div>
+	<div>
+		<div class="black_square" id="KR5" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="KN5" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="KB5" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="K5" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="Q5" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QB5" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QN5" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QR5" style="width:20px; height:20px;"></div>
+	</div>
+	<div>
+		<div class="white_square" id="KR4" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="KN4" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="KB4" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="K4" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="Q4" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QB4" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QN4" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QR4" style="width:20px; height:20px;"></div>
+	</div>
+	<div>
+		<div class="black_square" id="KR3" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="KN3" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="KB3" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="K3" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="Q3" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QB3" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QN3" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QR3" style="width:20px; height:20px;"></div>
+	</div>
+	<div>
+		<div class="white_square" id="KR2" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="KN2" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="KB2" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="K2" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="Q2" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QB2" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QN2" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="QR2" style="width:20px; height:20px;"></div>
+	</div>
+	<div>
+		<div class="black_square" id="KR1" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="KN1" style="width:20px; height:20px;"></div>
+		<div class="black_square" id="KB1" style="width:40px; height:40px;"></div>
+		<div class="white_square" id="K1" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="Q1" style="width:25px; height:25px;"></div>
+		<div class="white_square" id="QB1" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QN1" style="width:30px; height:30px;"></div>
+		<div class="white_square" id="QR1" style="width:20px; height:20px;"></div>
+	</div>
+	<div>
+		<div class="black_square" id="KR0" style="width:30px; height:30px;"></div>
+		<div class="white_square" id="KN0" style="width:35px; height:35px;"></div>
+		<div class="black_square" id="KB0" style="width:30px; height:30px;"></div>
+		<div class="white_square" id="K0" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="Q0" style="width:30px; height:30px;"></div>
+		<div class="white_square" id="QB0" style="width:30px; height:30px;"></div>
+		<div class="white_square" id="QN0" style="width:20px; height:20px;"></div>
+		<div class="white_square" id="QR0" style="width:30px; height:30px;"></div>
+	</div>
+</div>
+<div style="position:absolute; left:140px; top:120px;">
+<div id=""></div>
+</div>
+</body>
+</html>
